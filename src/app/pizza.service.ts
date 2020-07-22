@@ -30,7 +30,18 @@ export class PizzaService {
   addPizza(pizza: Pizza) {
     return this.http.post<Pizza>(this.apiUrl, pizza);
   }
+  getPizza(pizzaId: number): Observable<Pizza> {
+    return this.http.get<Pizza>(`${this.apiUrl}/api/pizzas/${pizzaId}`);
+  }
+
+  addPizza(pizza: Pizza) {
+    return this.http.post<Pizza>(`${this.apiUrl}/api/pizzas`, pizza);
+  }
+
   removePizza(pizzaId: number) {
-    // ... http.delete
+    return this.http.delete<Pizza>(`${this.apiUrl}/api/pizzas/${pizzaId}`);
+  }
+  editPizza(pizza: Pizza) {
+    return this.http.put<Pizza>(`${this.apiUrl}/api/pizzas/${pizza.id}`, pizza);
   }
 }

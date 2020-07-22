@@ -18,22 +18,4 @@ export class PizzaComponent implements OnInit {
       this.pizzas = pizzas;
     });
   }
-
-  addPizza() {
-    // this.pizzaSvc
-    //   .addPizza({
-    //     name: "testPizza",
-    //     description: "testtest",
-    //   })
-    //   .subscribe((_) => {
-    //     this.pizzaSvc.getPizzas().subscribe((response) => {
-    //       console.log(response);
-    //       this.pizzas = response.value;
-    //     });
-    //   });
-  }
-
-  updatePizza(pizzaId: number) {
-    // ... http.put
-  }
 }
