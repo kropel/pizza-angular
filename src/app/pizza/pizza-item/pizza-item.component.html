@@ -1,0 +1,21 @@
+<div class="thumbnail">
+  <a [routerLink]="['/pizza', pizza.id]"
+    ><img [src]="pizza.photoUrl" alt="{{ pizza.name }}" style="height: 250px;"
+  /></a>
+  <div class="caption">
+    <h3><small>Pizza:</small> {{ pizza.name | dots: 14 }}</h3>
+    <p><small>Description:</small> {{ pizza.description }}</p>
+
+    <div class="row">
+      <div class="col-xs-12 text-right">
+        <a
+          class="btn btn-primary mr-sm-5"
+          role="button"
+          [routerLink]="['./edit', pizza.id]"
+          >Edit</a
+        >
+        <a class="btn btn-danger" role="button" (click)="delete()">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
