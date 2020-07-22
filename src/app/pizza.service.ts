@@ -31,6 +31,7 @@ export class PizzaService {
   addPizza(pizza: Pizza) {
     return this.http.post<Pizza>(this.apiUrl, pizza);
   }
+
   removePizza(pizzaId: number) {
     return this.http.delete<Pizza>(`${this.apiUrl}/${pizzaId}`);
     this.getPizzas();
