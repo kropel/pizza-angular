@@ -13,7 +13,7 @@ export class PizzaItemComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private pizzaSvc: PizzaService,
+    private pizzaSvc: PizzaService
   ) {}
 
   ngOnInit() {
@@ -22,7 +22,7 @@ export class PizzaItemComponent implements OnInit {
       this.pizza = this.pizzaSvc.getPizza(id);
     }
   }
-  delete(){
-    this.pizzaSvc.
+  delete() {
+    this.pizzaSvc.removePizza(this.pizza.id);
   }
 }

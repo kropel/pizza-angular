@@ -16,6 +16,7 @@ export class PizzaService {
     this.http.get<PizzaResponse>(this.apiUrl).subscribe((response) => {
       this.pizzas = response.value;
       this.pizzasEmiter.emit(this.pizzas);
+      console.log("zaciągneło pizze z api");
     });
   }
 
@@ -31,6 +32,11 @@ export class PizzaService {
     return this.http.post<Pizza>(this.apiUrl, pizza);
   }
   removePizza(pizzaId: number) {
-    // ... http.delete
+    return this.http.delete<Pizza>(`${this.apiUrl}/${pizzaId}`);
+    this.getPizzas();
+    this.pizzasEmiter.emit(this.pizzas);
+  }
+  updatePizza(pizza: Pizza) {
+    return this.http.put<Pizza>(`${this.apiUrl}/${pizza.id}`, pizza);
   }
 }
